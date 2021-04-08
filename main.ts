@@ -1,6 +1,19 @@
 input.onButtonPressed(Button.A, function () {
     pins.analogWritePin(AnalogPin.P1, Vd)
     pins.analogWritePin(AnalogPin.P2, Vg)
+    for (let index = 0; index < 2; index++) {
+        pins.digitalWritePin(DigitalPin.P12, 0)
+        pins.digitalWritePin(DigitalPin.P13, 1)
+        pins.digitalWritePin(DigitalPin.P14, 1)
+        pins.digitalWritePin(DigitalPin.P15, 0)
+        Vg += 256
+        Vd += 256
+        basic.pause(100)
+    }
+    Vd = 1023
+    Vg = 1023
+    pins.analogWritePin(AnalogPin.P1, Vd)
+    pins.analogWritePin(AnalogPin.P2, Vg)
     pins.digitalWritePin(DigitalPin.P12, 0)
     pins.digitalWritePin(DigitalPin.P13, 1)
     pins.digitalWritePin(DigitalPin.P14, 1)
@@ -20,5 +33,5 @@ input.onButtonPressed(Button.B, function () {
 let Vg = 0
 let Vd = 0
 servos.P0.setAngle(24)
-Vd = 1023
-Vg = 1023
+Vd = 512
+Vg = 512

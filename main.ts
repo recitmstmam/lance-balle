@@ -35,3 +35,5 @@ let Vd = 0
 servos.P0.setAngle(24)
 Vd = 512
 Vg = 512
+basic.pause(1000)
+servos.P0.stop()
